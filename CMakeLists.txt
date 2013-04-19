@@ -4,7 +4,6 @@ find_path ( INTELMEDIASDK_PATH include/mfxvideo.h
   HINTS "${CMAKE_SOURCE_DIR}/sdk/" "$ENV{HOME}/.wine/drive_c/Program Files (x86)/Intel/Media SDK 2013/"
   ENV INTELMEDIASDK_PATH
   NO_DEFAULT_PATH)
-# $ENV{sdfdf}
 
 if (INTELMEDIASDK_PATH)
   message("Intel Media SDK include folder found ! (${INTELMEDIASDK_PATH})")
