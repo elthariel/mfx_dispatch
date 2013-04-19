@@ -32,7 +32,10 @@ File Name: mfx_library_iterator.h
 #define __MFX_LIBRARY_ITERATOR_H
 
 
-#include <mfx_mingw.h>
+#if defined(__GNUC__)
+# include <_mingw.h>
+#endif
+
 #include <mfxvideo.h>
 #include "mfx_win_reg_key.h"
 #include "mfx_dispatcher.h"

@@ -31,7 +31,10 @@ File Name: mfx_dispatcher.h
 #if !defined(__MFX_DISPATCHER_H)
 #define __MFX_DISPATCHER_H
 
-#include <mfx_mingw.h>
+#if defined (__GNUC__)
+# include <_mingw.h>
+#endif
+
 #include <mfxvideo.h>
 #include <mfxplugin.h>
 #include <stddef.h>

@@ -35,5 +35,13 @@ add_definitions(
   -D_LIB
 )
 
+configure_file (${CMAKE_SOURCE_DIR}/libmfx.pc ${CMAKE_BINARY_DIR}/libmfx.pc @ONLY)
+
+
 add_library( libmfx STATIC ${SOURCES} )
+install (FILES ${CMAKE_SOURCE_DIR}/include/mfx_dispatcher.h
+  ${CMAKE_SOURCE_DIR}/include/mfx_dispatcher.h
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+install (FILES ${CMAKE_BINARY_DIR}/libmfx.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+install (TARGETS libmfx ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 cmake_minimum_required(VERSION 2.6)

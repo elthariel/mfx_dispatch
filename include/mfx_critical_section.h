@@ -31,7 +31,11 @@ File Name: mfx_critical_section.h
 #if !defined(__MFX_CRITICAL_SECTION_H)
 #define __MFX_CRITICAL_SECTION_H
 
-#include <mfx_mingw.h>
+
+#if defined (__GNUC__)
+# include <_mingw.h>
+#endif
+
 #include <mfxdefs.h>
 
 namespace MFX

@@ -1,0 +1,14 @@
+prefix=/usr/x86_64-w64-mingw32
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libmfx
+Description: Intel Media SDK Dispatched static library
+Version: 2013
+Requires:
+Requires.private:
+Conflicts:
+Libs: -L${libdir} -lpsapi -ladvapi32 -lshell32
+Libs.private:
+Cflags: -I${includedir} -I/home/lta/code/c/mfx_dispatch/sdk/include
