@@ -1,4 +1,4 @@
-prefix=/usr/x86_64-w64-mingw32
+prefix=@CMAKE_INSTALL_PREFIX@
 exec_prefix=${prefix}
 libdir=${prefix}/lib
 includedir=${prefix}/include
@@ -11,4 +11,4 @@ Requires.private:
 Conflicts:
 Libs: -L${libdir} -lpsapi -ladvapi32 -lshell32
 Libs.private:
-Cflags: -I${includedir} -I/home/lta/code/c/mfx_dispatch/sdk/include
+Cflags: -I${includedir} -I@INTELMEDIASDK_PATH@/include
