@@ -372,4 +372,6 @@ return_value DISPATCHER_EXPOSED_PREFIX(func_name) formal_param_list \
     return mfxRes; \
 }
 
+extern "C" {
 #include "mfx_exposed_functions_list.h"
+}

@@ -9,6 +9,6 @@ Version: 2013
 Requires:
 Requires.private:
 Conflicts:
-Libs: -L${libdir} -lpsapi -ladvapi32 -lshell32
+Libs: -L${libdir} -lpsapi -ladvapi32 -lshell32 -lstdc++ ${libdir}/libmfx.a
 Libs.private:
 Cflags: -I${includedir} -I@INTELMEDIASDK_PATH@/include

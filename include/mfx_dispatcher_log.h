@@ -53,8 +53,8 @@ enum
 #if defined(MFX_DISPATCHER_LOG)
 
 //---------------------------setup section------------------------
-//using of formating instead of variadic macro with NULL end, 
-//leads to more flexibility in format, however constructing string 
+//using of formating instead of variadic macro with NULL end,
+//leads to more flexibility in format, however constructing string
 //with vsprintf_s is a time wasting
 #define DISPATCHER_LOG_USE_FORMATING 1
 
@@ -72,7 +72,7 @@ enum
 
 //puts a sink into listeners list
 //#define DISPATCHER_LOG_REGISTER_FILE_WRITER
-#define DISPACTHER_LOG_FW_PATH "c:\\dispatcher.log"
+#define  "c:\\dispatcher.log"
 
 #endif // #if defined(_WIN32) || defined(_WIN64)
 
@@ -97,7 +97,7 @@ public:
     }
 #else
     #define DISPATCHER_LOG_VA_ARGS(...) wrt.Write(__VA_ARGS__, NULL)
-    //WARNING: don't use types that occupy more that 4 bytes in memory 
+    //WARNING: don't use types that occupy more that 4 bytes in memory
     //WARNING: don't use %s in format specifier
     #define DISPATCHER_LOG(lvl, opcode, str) \
     {\
@@ -113,8 +113,8 @@ public:
 #endif
 
 #define __name_from_line( name, line ) name ## line
-#define _name_from_line( name , line) __name_from_line( name, line ) 
-#define name_from_line( name ) _name_from_line( name, __LINE__) 
+#define _name_from_line( name , line) __name_from_line( name, line )
+#define name_from_line( name ) _name_from_line( name, __LINE__)
 
 
 #define DISPATCHER_LOG_AUTO(lvl, msg)\
@@ -125,7 +125,7 @@ public:
 #include <list>
 #include <string>
 
-template <class T> 
+template <class T>
 class DSSingleTone
 {
 public:
@@ -137,7 +137,7 @@ public:
         {
             return *store_or_load(new T(par1));
         }
-        return *pstored;    
+        return *pstored;
     }
 
     inline static T & get()
@@ -150,7 +150,7 @@ public:
         return *pstored;
     }
 private:
-    //if obj == NULL, then it load 
+    //if obj == NULL, then it load
     //if obj != NULL then it store obj
     inline static T * store_or_load(T * obj = NULL)
     {
@@ -163,7 +163,7 @@ private:
     }
 };
 
-class DispatchLog 
+class DispatchLog
     : public DSSingleTone<DispatchLog>
 {
     friend class DSSingleTone<DispatchLog>;
@@ -178,7 +178,7 @@ public:
     void   ExchangeSink(int nsink, IMsgHandler *pOld, IMsgHandler *pNew);
     void   DetachAllSinks();
     void   Write(int level, int opcode, char * msg, va_list argptr);
-    
+
 protected:
     DispatchLog();
 };
@@ -227,7 +227,7 @@ protected:
 };
 #endif
 
-class FileSink 
+class FileSink
     : public DSSingleTone<FileSink>
     , public IMsgHandler
 {
@@ -245,7 +245,7 @@ private:
     {
         fopen_s(&m_hdl, log_file.c_str(), "a");
     }
-    
+
 };
 #endif // #if defined(_WIN32) || defined(_WIN64)
 
@@ -258,7 +258,7 @@ const char *DispatcherLog_GetMFXStatusString(int sts);
 
     #define DISPATCHER_LOG(level, opcode, message)
     #define DISPATCHER_LOG_AUTO(level, message)
-    #define DISPATCHER_LOG_OPERATION(operation) 
+    #define DISPATCHER_LOG_OPERATION(operation)
 
 #endif// !defined(MFX_DISPATCHER_LOG)
 
